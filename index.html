@@ -558,16 +558,49 @@
             </article>
         </div>
 
-        <!-- Footer -->
-        <footer id="footer">
 
-            <section class="split contact">
-                <section class="alt">
-                    <h3>Email</h3>
-                    <p><a href="#">romanibba95@gmail.com</a></p>
-                </section>
+        <footer id="footer" style="background-color: white">
+            <section>
+                <h2>Contact</h2>
+
+                <div class="contact-form">
+                    <form id="contact-form" method="post" action="contact-form-handler.php">
+                        <input name="name" type="text" class="form-control" required>
+                        <br>
+                        <input name="email" type="email" class="form-control" required>
+                        <br>
+                        <textarea name="message" class="form-control" row="4" required></textarea>
+                        <br>
+
+                        <input type="submit" class="form-control submit" value="SEND MESSAGE" name="submit">
+
+                    </form>
+                </div>
+
+
+                <!-- <form method="post" action="MAILTO:romanibba95@gmail.com" enctype="text/plain" id="contact-form">
+                    <div class="fields">
+                        <div class="field">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" id="name" required/>
+                        </div>
+                        <div class="field">
+                            <label for="email">Email</label>
+                            <input type="text" name="email" id="email" />
+                        </div>
+                        <div class="field">
+                            <label for="message">Message</label>
+                            <textarea name="message" id="message" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <ul class="actions">
+                        <li><input type="submit" value="Send Message" /></li>
+                    </ul>
+                </form> -->
+            </section>
             </section>
         </footer>
+
 
         <!-- Copyright -->
         <div id="copyright">
