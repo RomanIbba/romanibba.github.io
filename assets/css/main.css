@@ -4426,7 +4426,10 @@ th {
     font-weight: bold;
 }
 
-td,
+td {
+    border: none;
+}
+
 th {
     padding: 6px;
     text-align: left;
