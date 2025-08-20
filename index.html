@@ -55,6 +55,76 @@
     .btn:hover { border-color: color-mix(in oklab, var(--text), transparent 70%); }
     .btn-primary { background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: #0b1220; border: none; }
 
+    /* --- Mobile nav toggle --- */
+    .nav-toggle {
+      display: none;
+      background: transparent;
+      border: 1px solid color-mix(in oklab, var(--text), transparent 85%);
+      border-radius: 10px;
+      padding: 8px 10px;
+      cursor: pointer;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .nav-toggle .bar {
+      display: block;
+      width: 18px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+    }
+    .nav-toggle .bar + .bar { margin-top: 4px; }
+
+    /* Desktop default */
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    /* --- Mobile layout --- */
+    @media (max-width: 720px) {
+      .nav-inner {
+        min-height: 56px;
+      }
+
+      .nav-toggle {
+        display: inline-flex;
+      }
+
+      /* Turn the links into a dropdown panel */
+      .nav-links {
+        position: absolute;
+        inset-inline: 0;
+        top: 100%;
+        display: none;                /* hidden by default */
+        flex-direction: column;
+        gap: 8px;
+        padding: 12px 24px 16px;
+        background: color-mix(in oklab, var(--panel), transparent 0%);
+        border-bottom: 1px solid color-mix(in oklab, var(--text), transparent 90%);
+      }
+
+      /* When header is open, show the panel */
+      .nav.open .nav-links {
+        display: flex;
+      }
+
+      /* Make links and button full-width & easier to tap */
+      .nav-links a {
+        width: 100%;
+        padding: 12px;
+        border-radius: 10px;
+      }
+
+      .nav-links .btn {
+        justify-content: center;
+        text-align: center;
+      }
+    }
+
     /* Hero */
     .hero { display: grid; grid-template-columns: 1.2fr .8fr; gap: 32px; padding: 40px 0 16px; align-items: center; }
     .hero h1 { font-size: clamp(28px, 5vw, 48px); line-height: 1.05; margin: 0 0 10px; }
@@ -118,14 +188,25 @@
 <body>
   <header class="nav">
     <div class="container nav-inner">
-      <div class="logo"><span class="logo-badge"></span> Roman Ibba</div>
-      <nav class="nav-links">
+      <div class="logo">
+        <span class="logo-badge"></span> Roman Ibba
+      </div>
+  
+      <!-- Mobile toggle -->
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+        <!-- simple icon -->
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+  
+      <nav id="primary-nav" class="nav-links">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
-        <a class="btn" href="assets/resume/RESUME_2025.pdf" target="_blank" rel="noopener noreferrer">View/Download Resume (PDF)</a>
+        <a class="btn" href="assets/resume/RESUME_2025.pdf" target="_blank" rel="noopener noreferrer">
+          View/Download Resume (PDF)
+        </a>
       </nav>
     </div>
   </header>
@@ -333,6 +414,28 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // below is for hamburger menu
+    (function () {
+      const header = document.querySelector('.nav');
+      const toggle = document.querySelector('.nav-toggle');
+  
+      if (!toggle) return;
+  
+      toggle.addEventListener('click', () => {
+        const isOpen = header.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+      });
+  
+      // Close menu when clicking a link (nice UX)
+      document.getElementById('primary-nav')?.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A') {
+          header.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    })();
   </script>
+  
 </body>
 </html>
