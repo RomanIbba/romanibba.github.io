@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YOUR NAME — Portfolio</title>
+  <meta name="description" content="Portfolio of YOUR NAME: backend software engineer specializing in distributed systems, APIs, and cloud." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b1220;
+      --panel: #121a2b;
+      --text: #e6edf6;
+      --muted: #98a2b3;
+      --brand: #7c9cff;
+      --brand-2: #22d3ee;
+      --ring: rgba(124, 156, 255, .35);
+      --card: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f6f7fb;
+        --panel: #ffffff;
+        --text: #0f172a;
+        --muted: #475569;
+        --brand: #3b82f6;
+        --brand-2: #06b6d4;
+        --ring: rgba(59,130,246,.25);
+        --card: linear-gradient(180deg, rgba(0,0,0,.04), rgba(0,0,0,.02));
+      }
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; background: radial-gradient(1200px 600px at 80% -10%, rgba(124,156,255,.18), transparent 40%), var(--bg);
+      color: var(--text); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      line-height: 1.5;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 24px; }
+    .nav {
+      position: sticky; top: 0; z-index: 50; backdrop-filter: saturate(180%) blur(10px);
+      background: color-mix(in oklab, var(--bg), transparent 40%);
+      border-bottom: 1px solid color-mix(in oklab, var(--text), transparent 92%);
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .logo { font-weight: 800; letter-spacing: .3px; display: flex; align-items: center; gap: 10px; }
+    .logo-badge { width: 28px; height: 28px; border-radius: 8px; background: linear-gradient(135deg, var(--brand), var(--brand-2)); box-shadow: 0 8px 20px -8px var(--ring); }
+    .nav-links { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+    .nav-links a { padding: 8px 10px; border-radius: 10px; color: var(--muted); font-weight: 600; font-size: 14px; }
+    .nav-links a:hover { color: var(--text); background: color-mix(in oklab, var(--panel), transparent 40%); }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 12px; font-weight: 600; border: 1px solid color-mix(in oklab, var(--text), transparent 85%); background: var(--panel); box-shadow: 0 10px 30px -15px var(--ring); }
+    .btn:hover { border-color: color-mix(in oklab, var(--text), transparent 70%); }
+    .btn-primary { background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: #0b1220; border: none; }
+
+    /* Hero */
+    .hero { display: grid; grid-template-columns: 1.2fr .8fr; gap: 32px; padding: 40px 0 16px; align-items: center; }
+    .hero h1 { font-size: clamp(28px, 5vw, 48px); line-height: 1.05; margin: 0 0 10px; }
+    .eyebrow { color: var(--brand-2); font-weight: 700; text-transform: uppercase; letter-spacing: .18em; font-size: 12px; }
+    .hero p { color: var(--muted); font-size: 18px; margin: 14px 0 22px; }
+    .chipset { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+    .chip { padding: 6px 10px; border-radius: 999px; background: color-mix(in oklab, var(--panel), transparent 38%); border: 1px solid color-mix(in oklab, var(--text), transparent 86%); font-size: 12px; color: var(--muted); }
+    .avatar {
+      width: min(320px, 100%); aspect-ratio: 1/1; margin-inline: auto; border-radius: 24px; background:
+        radial-gradient(120px 120px at 30% 20%, color-mix(in oklab, var(--brand), white 40%), transparent 60%),
+        linear-gradient(180deg, color-mix(in oklab, var(--panel), transparent 0%), color-mix(in oklab, var(--panel), transparent 0%)),
+        var(--panel);
+      border: 1px solid color-mix(in oklab, var(--text), transparent 90%);
+      box-shadow: 0 20px 60px -25px var(--ring);
+      display: grid; place-items: center; color: var(--muted);
+      font-weight: 700; letter-spacing: .05em;
+    }
+
+    /* Sections */
+    section { padding: 36px 0; }
+    .section-title { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+    .section-title h2 { margin: 0; font-size: clamp(20px, 3vw, 28px); }
+    .section-title p { margin: 0; color: var(--muted); }
+
+    .grid { display: grid; gap: 16px; }
+    @media (min-width: 720px) {
+      .grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+      .grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .card { background: var(--card); border: 1px solid color-mix(in oklab, var(--text), transparent 88%); border-radius: 16px; padding: 18px; transition: transform .2s ease, border-color .2s ease; }
+    .card:hover { transform: translateY(-3px); border-color: color-mix(in oklab, var(--brand), transparent 30%); }
+    .card h3 { margin: 0 0 8px; font-size: 18px; }
+    .card .meta { color: var(--muted); font-size: 13px; margin-bottom: 10px; }
+
+    /* Timeline */
+    .timeline { position: relative; padding-left: 22px; }
+    .timeline:before { content: ""; position: absolute; left: 8px; top: 4px; bottom: 4px; width: 2px; background: color-mix(in oklab, var(--text), transparent 85%); border-radius: 2px; }
+    .t-item { position: relative; margin: 0 0 18px; padding-left: 8px; }
+    .t-item:before { content: ""; position: absolute; left: -6px; top: 6px; width: 12px; height: 12px; background: linear-gradient(135deg, var(--brand), var(--brand-2)); border-radius: 50%; box-shadow: 0 0 0 4px var(--ring); }
+
+    /* Footer */
+    footer { padding: 48px 0 60px; color: var(--muted); }
+    .socials { display: flex; gap: 10px; flex-wrap: wrap; }
+    .socials a { padding: 8px 10px; border-radius: 10px; border: 1px solid color-mix(in oklab, var(--text), transparent 88%); }
+
+    /* Utilities */
+    .muted { color: var(--muted); }
+    .nowrap { white-space: nowrap; }
+    .spacer { height: 6px; }
+
+    /* Print */
+    @media print {
+      .nav, .btn, .socials { display: none !important; }
+      body { background: #fff; color: #000; }
+      .card, .avatar { box-shadow: none; }
+      a { color: #000; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <div class="logo"><span class="logo-badge"></span> YOUR NAME</div>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <a class="btn" href="#" download>Download Résumé (PDF)</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero / About -->
+    <section id="about" class="hero">
+      <div>
+        <div class="eyebrow">Backend / Distributed Systems</div>
+        <h1>Software Engineer focused on scalable APIs, resilient systems, and clean architecture.</h1>
+        <p>
+          Backend Software Engineer with 5+ years building and optimizing distributed systems for high-volume logistics and compliance platforms. Skilled in Laravel, Java, Docker, Redis and API integrations—with a focus on scalability, fault tolerance, and end‑to‑end system design.
+        </p>
+        <div class="chipset">
+          <span class="chip">Laravel</span>
+          <span class="chip">Spring Boot</span>
+          <span class="chip">MySQL / PostgreSQL</span>
+          <span class="chip">Redis</span>
+          <span class="chip">Docker &amp; K8s</span>
+          <span class="chip">Azure / AWS</span>
+          <span class="chip">REST APIs</span>
+        </div>
+        <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn btn-primary" href="#projects">View Projects</a>
+          <a class="btn" href="#contact">Contact Me</a>
+        </div>
+      </div>
+      <div class="avatar">Your Photo</div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <div class="section-title">
+        <h2>Skills</h2>
+        <p class="muted">Core stack & supporting tools</p>
+      </div>
+      <div class="grid cols-3">
+        <div class="card">
+          <h3>Languages & Frameworks</h3>
+          <p class="muted">Java (Spring Boot), PHP (Laravel), Python, JavaScript (Node.js, React)</p>
+        </div>
+        <div class="card">
+          <h3>Tools & DevOps</h3>
+          <p class="muted">Docker, Kubernetes, Git, CI/CD, Linux CLI, Postman, NPM</p>
+        </div>
+        <div class="card">
+          <h3>Databases</h3>
+          <p class="muted">MySQL, PostgreSQL, Redis</p>
+        </div>
+        <div class="card">
+          <h3>Architecture</h3>
+          <p class="muted">Distributed Systems, Microservices, Modular Design, Event-Driven</p>
+        </div>
+        <div class="card">
+          <h3>Process</h3>
+          <p class="muted">Agile/Scrum, Code Reviews, Testing, SDLC</p>
+        </div>
+        <div class="card">
+          <h3>APIs</h3>
+          <p class="muted">REST Design, AuthN/Z, Rate Limiting, Observability</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+      <div class="section-title">
+        <h2>Work Experience</h2>
+        <p class="muted">Recent roles & impact</p>
+      </div>
+      <div class="timeline">
+        <div class="t-item">
+          <h3>Backend Software Engineer · Company Name</h3>
+          <div class="meta">Jan 2021 – Present · Remote</div>
+          <p class="muted">Designed and scaled microservices handling millions of daily events; reduced API latency by 35% using Redis caching and async job queues; led migration to containerized workloads.</p>
+        </div>
+        <div class="t-item">
+          <h3>Software Engineer · Company Name</h3>
+          <div class="meta">Jun 2019 – Dec 2020 · City, ST</div>
+          <p class="muted">Built integrations with third‑party carriers and compliance systems; authored CI/CD pipelines and monitoring dashboards for production reliability.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <div class="section-title">
+        <h2>Selected Projects</h2>
+        <p class="muted">Open‑source & professional work</p>
+      </div>
+      <div class="grid cols-3">
+        <article class="card">
+          <h3>Logistics Orchestrator</h3>
+          <div class="meta">Laravel · Redis · MySQL</div>
+          <p class="muted">Event‑driven service coordinating parcel intake, compliance checks, and vendor APIs. Cut processing time by 40%.</p>
+          <div class="spacer"></div>
+          <a class="btn" href="#">View Code</a>
+        </article>
+        <article class="card">
+          <h3>Compliance Rules Engine</h3>
+          <div class="meta">Spring Boot · PostgreSQL</div>
+          <p class="muted">Declarative rules evaluation for HTS/PGA validations with audit trails and feature flags.</p>
+          <div class="spacer"></div>
+          <a class="btn" href="#">Case Study</a>
+        </article>
+        <article class="card">
+          <h3>Personal Portfolio</h3>
+          <div class="meta">HTML · CSS · Vanilla JS</div>
+          <p class="muted">This page. Fully responsive, print-friendly, and accessible. Drop‑in deployable.</p>
+          <div class="spacer"></div>
+          <a class="btn" href="#about">Back to Top</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="section-title">
+        <h2>Contact</h2>
+        <p class="muted">Let’s build something</p>
+      </div>
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>Get in touch</h3>
+          <p class="muted">Email is best. I’m open to backend roles, platform engineering, and API‑heavy product work.</p>
+          <div class="socials" style="margin-top:10px;">
+            <a href="mailto:you@example.com" aria-label="Email">you@example.com</a>
+            <a href="https://www.linkedin.com/in/your-handle" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a href="https://github.com/your-handle" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Quick message</h3>
+          <form action="mailto:you@example.com" method="post" enctype="text/plain">
+            <label>Name<br><input name="name" required style="width:100%;padding:10px;border-radius:10px;border:1px solid color-mix(in oklab, var(--text), transparent 85%);background:transparent;color:var(--text)"></label>
+            <div class="spacer"></div>
+            <label>Email<br><input type="email" name="email" required style="width:100%;padding:10px;border-radius:10px;border:1px solid color-mix(in oklab, var(--text), transparent 85%);background:transparent;color:var(--text)"></label>
+            <div class="spacer"></div>
+            <label>Message<br><textarea name="message" rows="4" required style="width:100%;padding:10px;border-radius:10px;border:1px solid color-mix(in oklab, var(--text), transparent 85%);background:transparent;color:var(--text)"></textarea></label>
+            <div class="spacer"></div>
+            <button class="btn btn-primary" type="submit">Send</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container">
+    <div style="display:flex; align-items:center; justify-content:space-between; gap: 18px; flex-wrap:wrap;">
+      <div>© <span id="year"></span> YOUR NAME · <span class="muted">All rights reserved</span></div>
+      <div class="socials">
+        <a href="#about">Top</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
