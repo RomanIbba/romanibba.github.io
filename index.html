@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>YOUR NAME — Portfolio</title>
-  <meta name="description" content="Portfolio of YOUR NAME: backend software engineer specializing in distributed systems, APIs, and cloud." />
+  <title>Roman Ibba — Portfolio</title>
+  <meta name="description" content="Portfolio of Roman Ibba: backend software engineer specializing in distributed systems, APIs, and cloud." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -86,7 +86,7 @@
     }
 
     .card { background: var(--card); border: 1px solid color-mix(in oklab, var(--text), transparent 88%); border-radius: 16px; padding: 18px; transition: transform .2s ease, border-color .2s ease; }
-    .card:hover { transform: translateY(-3px); border-color: color-mix(in oklab, var(--brand), transparent 30%); }
+    /* .card:hover { transform: translateY(-3px); border-color: color-mix(in oklab, var(--brand), transparent 30%); } */
     .card h3 { margin: 0 0 8px; font-size: 18px; }
     .card .meta { color: var(--muted); font-size: 13px; margin-bottom: 10px; }
 
@@ -118,14 +118,14 @@
 <body>
   <header class="nav">
     <div class="container nav-inner">
-      <div class="logo"><span class="logo-badge"></span> YOUR NAME</div>
+      <div class="logo"><span class="logo-badge"></span> Roman Ibba</div>
       <nav class="nav-links">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
-        <a class="btn" href="#" download>Download Résumé (PDF)</a>
+        <a class="btn" href="assets/resume/RESUME_2025.pdf" target="_blank" rel="noopener noreferrer">View/Download Resume (PDF)</a>
       </nav>
     </div>
   </header>
@@ -137,15 +137,17 @@
         <div class="eyebrow">Backend / Distributed Systems</div>
         <h1>Software Engineer focused on scalable APIs, resilient systems, and clean architecture.</h1>
         <p>
-          Backend Software Engineer with 5+ years building and optimizing distributed systems for high-volume logistics and compliance platforms. Skilled in Laravel, Java, Docker, Redis and API integrations—with a focus on scalability, fault tolerance, and end‑to‑end system design.
+          Backend Software Engineer with 5+ years of experience building and optimizing distributed systems for high-volume platforms. 
+          Skilled in backend frameworks, containerization, caching, and API integration, with a 
+          focus on scalability, reliability, and end-to-end system design.
         </p>
         <div class="chipset">
-          <span class="chip">Laravel</span>
-          <span class="chip">Spring Boot</span>
+          <span class="chip">PHP / Laravel</span>
+          <span class="chip">Java / Spring Boot</span>
           <span class="chip">MySQL / PostgreSQL</span>
           <span class="chip">Redis</span>
-          <span class="chip">Docker &amp; K8s</span>
-          <span class="chip">Azure / AWS</span>
+          <span class="chip">Docker &amp; Kubernetes</span>
+          <!-- <span class="chip">Azure / AWS</span> -->
           <span class="chip">REST APIs</span>
         </div>
         <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
@@ -165,7 +167,7 @@
       <div class="grid cols-3">
         <div class="card">
           <h3>Languages & Frameworks</h3>
-          <p class="muted">Java (Spring Boot), PHP (Laravel), Python, JavaScript (Node.js, React)</p>
+          <p class="muted">Java (Spring Boot), PHP (Laravel), JavaScript (Node.js, React), MVC</p>
         </div>
         <div class="card">
           <h3>Tools & DevOps</h3>
@@ -173,7 +175,7 @@
         </div>
         <div class="card">
           <h3>Databases</h3>
-          <p class="muted">MySQL, PostgreSQL, Redis</p>
+          <p class="muted">MySQL, PostgreSQL, Redis, SQL (Queries & Optimization)</p>
         </div>
         <div class="card">
           <h3>Architecture</h3>
@@ -198,14 +200,50 @@
       </div>
       <div class="timeline">
         <div class="t-item">
-          <h3>Backend Software Engineer · Company Name</h3>
-          <div class="meta">Jan 2021 – Present · Remote</div>
-          <p class="muted">Designed and scaled microservices handling millions of daily events; reduced API latency by 35% using Redis caching and async job queues; led migration to containerized workloads.</p>
+          <h3>Back End Developer · MIQ </h3>
+          <div class="meta">Feb 2021 – Present</div>
+          <p class="muted">
+            • Led backend architecture for Type86 eCommerce parcel processing, achieving seamless 
+            integration with U.S. Customs and Border Protection through automated Laravel-based EDI file 
+            generation. </br>
+            • Designed and deployed highly scalable Laravel systems that processed thousands of daily 
+            entries, significantly reducing latency and error rates. </br>
+            • Architected modular software components to support international customs clearance across 
+            multiple filing types (ENS, ACR, 321). </br>
+            • Integrated FlightAware API for real-time cargo tracking, cutting warehousing costs by 20%. </br>
+            • Applied advanced SQL strategies to optimize data processing, reducing response time by 35%. </br>
+            • Participated in code reviews, version control, and weekly sprint planning.
+            </p>
         </div>
         <div class="t-item">
-          <h3>Software Engineer · Company Name</h3>
-          <div class="meta">Jun 2019 – Dec 2020 · City, ST</div>
-          <p class="muted">Built integrations with third‑party carriers and compliance systems; authored CI/CD pipelines and monitoring dashboards for production reliability.</p>
+          <h3>PEGA / Software Engineer · Cisco Systems</h3>
+          <div class="meta">Feb 2020 – Jul 2020</div>
+          <p class="muted">
+            • Enhanced Product Returns & Replacement workflows by identifying bottlenecks and 
+            collaborating across teams  </br>
+            • Contributed to Agile sprints, built unit tests and supported QA efforts in a low-code enterprise 
+            platform. 
+            </p>
+        </div>
+        <div class="t-item">
+          <h3>Software Engineering Trainee · Revature </h3>
+          <div class="meta">Oct 2019 – Feb 2020</div>
+          <p class="muted">
+            • Completed intensive Java full-stack development bootcamp; trained in Spring Boot, RESTful 
+            APIs, Agile/Scrum, and unit testing </br>
+            • Implemented secure authentication protocols, eliminating user data vulnerabilities. </br>
+            • Worked in collaborative team environments on simulated enterprise projects using Git for 
+            version control. 
+            </p>
+        </div>
+        <div class="t-item">
+          <h3>Full Stack Developer Intern · CSU San Bernardino </h3>
+          <div class="meta">Oct 2017 – Jun 2017</div>
+          <p class="muted">
+            • Developed internal web tools for academic advisors to monitor and support student needs 
+            across departments. </br>
+            • Created robust MySQL schemas and MVC-based PHP systems for analytics dashboards. 
+            </p>
         </div>
       </div>
     </section>
@@ -218,25 +256,34 @@
       </div>
       <div class="grid cols-3">
         <article class="card">
-          <h3>Logistics Orchestrator</h3>
-          <div class="meta">Laravel · Redis · MySQL</div>
-          <p class="muted">Event‑driven service coordinating parcel intake, compliance checks, and vendor APIs. Cut processing time by 40%.</p>
+          <h3>JAVA DATABASE CONNECTIVITY BANK APPLICATION</h3>
+          <div class="meta">Spring Boot · Java · JDBC</div>
+          <p class="muted">An application that allows for different access levels depending on the user. Users can deposit, withdraw and transfer money and all data is saved and pulled from database.</p>
           <div class="spacer"></div>
-          <a class="btn" href="#">View Code</a>
+          <a class="btn" target="_blank"  href="https://github.com/RomanIbba/JDBCBankApplication">View Code</a>
         </article>
         <article class="card">
-          <h3>Compliance Rules Engine</h3>
-          <div class="meta">Spring Boot · PostgreSQL</div>
-          <p class="muted">Declarative rules evaluation for HTS/PGA validations with audit trails and feature flags.</p>
+          <h3>TUITION REIMBURSEMENT MANAGEMENT SYSTEM</h3>
+          <div class="meta">Spring Boot · Java · JDBC connectivity · Bootstrap · PostgreSQL · AMS database</div>
+          <p class="muted">A website that allows for different access levels dependingon the user. Classes taken by employees are tracked then reimbursed. Classes must be pre approved and all data is saved in a database.</p>
           <div class="spacer"></div>
-          <a class="btn" href="#">Case Study</a>
+          <a class="btn" target="_blank"  href="https://github.com/RomanIbba/TuitionReimbursementManagementSystem">View Code</a>
         </article>
         <article class="card">
-          <h3>Personal Portfolio</h3>
-          <div class="meta">HTML · CSS · Vanilla JS</div>
-          <p class="muted">This page. Fully responsive, print-friendly, and accessible. Drop‑in deployable.</p>
+          <h3>SMART BRAIN: FACE DETECTION APPLICATION</h3>
+          <div class="meta">React · JavaScript/JSX · Node.js · Express.js · NPM · MongoDB · Heroku</div>
+          <p class="muted">A website that allows users to sign in/register and enter an image link. The application will find the face in the image and display your name as well as how many images you have entered.</p>
           <div class="spacer"></div>
-          <a class="btn" href="#about">Back to Top</a>
+          <a class="btn" target="_blank"  href="https://github.com/RomanIbba/smart-brain">View Code</a>
+          <a class="btn" target="_blank"  href="https://smart-brain-finder.herokuapp.com/">View Live Demo</a>
+        </article>
+        <article class="card">
+          <h3>Mini Projects</h3>
+          <div class="meta">JavaScript · API's · DOM manipulation</div>
+          <p class="muted">A compilation of mini projects I have worked on, each one teaching important software engineering concepts. Take a look around and I am sure you will find something that peaks your interest whether it’s a game of packman, a joke teller that reads the joke to you out loud or even your next twitter quote generator. </p>
+          <div class="spacer"></div>
+          <a class="btn" target="_blank"  href="https://github.com/RomanIbba/miniprojects">View Code</a>
+          <a class="btn" target="_blank"  href="https://romanibba.github.io/miniprojects/">View Live Demo</a>
         </article>
       </div>
     </section>
@@ -252,14 +299,14 @@
           <h3>Get in touch</h3>
           <p class="muted">Email is best. I’m open to backend roles, platform engineering, and API‑heavy product work.</p>
           <div class="socials" style="margin-top:10px;">
-            <a href="mailto:you@example.com" aria-label="Email">you@example.com</a>
-            <a href="https://www.linkedin.com/in/your-handle" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a href="https://github.com/your-handle" target="_blank" rel="noreferrer">GitHub</a>
+            <a href="mailto:RomanIbba95@gmail.com" aria-label="Email">RomanIbba95@gmail.com</a>
+            <a href="https://www.linkedin.com/in/roman-i-7a9491183/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a href="https://github.com/RomanIbba" target="_blank" rel="noreferrer">GitHub</a>
           </div>
         </div>
         <div class="card">
           <h3>Quick message</h3>
-          <form action="mailto:you@example.com" method="post" enctype="text/plain">
+          <form action="mailto:RomanIbba95@gmail.com" method="post" enctype="text/plain">
             <label>Name<br><input name="name" required style="width:100%;padding:10px;border-radius:10px;border:1px solid color-mix(in oklab, var(--text), transparent 85%);background:transparent;color:var(--text)"></label>
             <div class="spacer"></div>
             <label>Email<br><input type="email" name="email" required style="width:100%;padding:10px;border-radius:10px;border:1px solid color-mix(in oklab, var(--text), transparent 85%);background:transparent;color:var(--text)"></label>
@@ -275,11 +322,11 @@
 
   <footer class="container">
     <div style="display:flex; align-items:center; justify-content:space-between; gap: 18px; flex-wrap:wrap;">
-      <div>© <span id="year"></span> YOUR NAME · <span class="muted">All rights reserved</span></div>
+      <div>© <span id="year"></span> Roman Ibba · <span class="muted">All rights reserved</span></div>
       <div class="socials">
         <a href="#about">Top</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+        <!-- <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a> -->
       </div>
     </div>
   </footer>
