@@ -1,817 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Roman Ibba — Backend / Full-Stack Software Engineer</title>
-  <meta name="description" content="Portfolio of Roman Ibba: Backend and Full-Stack Software Engineer specializing in Laravel, React, JavaScript, APIs, automation, integrations, and end-to-end business systems." />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg: #0b1220;
-      --panel: #121a2b;
-      --panel-2: #182238;
-      --text: #e6edf6;
-      --muted: #98a2b3;
-      --brand: #7c9cff;
-      --brand-2: #22d3ee;
-      --ring: rgba(124, 156, 255, .35);
-      --card: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-    }
-
-    @media (prefers-color-scheme: light) {
-      :root {
-        --bg: #f6f7fb;
-        --panel: #ffffff;
-        --panel-2: #eef2ff;
-        --text: #0f172a;
-        --muted: #475569;
-        --brand: #2563eb;
-        --brand-2: #0891b2;
-        --ring: rgba(37, 99, 235, .25);
-        --card: linear-gradient(180deg, rgba(0,0,0,.04), rgba(0,0,0,.02));
-      }
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      background:
-        radial-gradient(1200px 600px at 80% -10%, rgba(124,156,255,.18), transparent 40%),
-        radial-gradient(900px 500px at 10% 10%, rgba(34,211,238,.10), transparent 45%),
-        var(--bg);
-      color: var(--text);
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.5;
-    }
-
-    a { color: inherit; text-decoration: none; }
-
-    .container {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 24px;
-    }
-
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: saturate(180%) blur(12px);
-      background: color-mix(in oklab, var(--bg), transparent 35%);
-      border-bottom: 1px solid color-mix(in oklab, var(--text), transparent 92%);
-    }
-
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    .logo {
-      font-weight: 900;
-      letter-spacing: .3px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .logo-badge {
-      width: 30px;
-      height: 30px;
-      border-radius: 9px;
-      background: linear-gradient(135deg, var(--brand), var(--brand-2));
-      box-shadow: 0 8px 20px -8px var(--ring);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 14px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      padding: 8px 10px;
-      border-radius: 10px;
-      color: var(--muted);
-      font-weight: 700;
-      font-size: 14px;
-    }
-
-    .nav-links a:hover {
-      color: var(--text);
-      background: color-mix(in oklab, var(--panel), transparent 40%);
-    }
-
-    .nav-toggle {
-      display: none;
-      background: transparent;
-      border: 1px solid color-mix(in oklab, var(--text), transparent 85%);
-      border-radius: 10px;
-      padding: 8px 10px;
-      cursor: pointer;
-    }
-
-    .nav-toggle .bar {
-      display: block;
-      width: 18px;
-      height: 2px;
-      background: var(--text);
-      border-radius: 2px;
-    }
-
-    .nav-toggle .bar + .bar { margin-top: 4px; }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 10px 14px;
-      border-radius: 12px;
-      font-weight: 800;
-      font-size: 14px;
-      border: 1px solid color-mix(in oklab, var(--text), transparent 85%);
-      background: var(--panel);
-      box-shadow: 0 10px 30px -15px var(--ring);
-      transition: transform .2s ease, border-color .2s ease;
-    }
-
-    .btn:hover {
-      border-color: color-mix(in oklab, var(--brand), transparent 35%);
-      transform: translateY(-1px);
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--brand), var(--brand-2));
-      color: #07111f;
-      border: none;
-    }
-
-    .hero {
-      display: grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 36px;
-      padding: 54px 0 24px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      color: var(--brand-2);
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: .18em;
-      font-size: 12px;
-      margin-bottom: 12px;
-    }
-
-    .hero h1 {
-      font-size: clamp(34px, 6vw, 58px);
-      line-height: 1.02;
-      margin: 0 0 14px;
-      letter-spacing: -0.04em;
-    }
-
-    .hero p {
-      color: var(--muted);
-      font-size: 18px;
-      margin: 14px 0 22px;
-      max-width: 720px;
-    }
-
-    .hero-card {
-      background: var(--card);
-      border: 1px solid color-mix(in oklab, var(--text), transparent 88%);
-      border-radius: 24px;
-      padding: 22px;
-      box-shadow: 0 24px 80px -45px var(--ring);
-    }
-
-    .hero-card h3 {
-      margin: 0 0 8px;
-      font-size: 18px;
-    }
-
-    .hero-card p {
-      font-size: 14px;
-      margin: 0;
-    }
-
-    .metric-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      margin-top: 18px;
-    }
-
-    .metric {
-      background: color-mix(in oklab, var(--panel), transparent 20%);
-      border: 1px solid color-mix(in oklab, var(--text), transparent 90%);
-      border-radius: 16px;
-      padding: 14px;
-    }
-
-    .metric strong {
-      display: block;
-      font-size: 22px;
-      line-height: 1;
-      color: var(--text);
-    }
-
-    .metric span {
-      display: block;
-      margin-top: 6px;
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    .chipset {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 16px;
-    }
-
-    .chip {
-      padding: 7px 11px;
-      border-radius: 999px;
-      background: color-mix(in oklab, var(--panel), transparent 30%);
-      border: 1px solid color-mix(in oklab, var(--text), transparent 86%);
-      font-size: 12px;
-      color: var(--muted);
-      font-weight: 700;
-    }
-
-    section { padding: 42px 0; }
-
-    .section-title {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 18px;
-    }
-
-    .section-title h2 {
-      margin: 0;
-      font-size: clamp(23px, 3vw, 32px);
-      letter-spacing: -0.03em;
-    }
-
-    .section-title p {
-      margin: 0;
-      color: var(--muted);
-      max-width: 520px;
-    }
-
-    .grid {
-      display: grid;
-      gap: 16px;
-    }
-
-    @media (min-width: 760px) {
-      .grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
-      .grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid color-mix(in oklab, var(--text), transparent 88%);
-      border-radius: 18px;
-      padding: 20px;
-      transition: transform .2s ease, border-color .2s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-2px);
-      border-color: color-mix(in oklab, var(--brand), transparent 45%);
-    }
-
-    .card h3 {
-      margin: 0 0 8px;
-      font-size: 18px;
-    }
-
-    .card p { margin: 0; }
-
-    .meta {
-      color: var(--muted);
-      font-size: 13px;
-      margin-bottom: 12px;
-      font-weight: 700;
-    }
-
-    .muted { color: var(--muted); }
-
-    .feature-project {
-      grid-column: 1 / -1;
-      padding: 26px;
-      border-radius: 24px;
-      background:
-        radial-gradient(700px 300px at 90% 0%, rgba(34,211,238,.14), transparent 45%),
-        radial-gradient(600px 300px at 0% 10%, rgba(124,156,255,.16), transparent 45%),
-        var(--card);
-    }
-
-    .project-actions {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 18px;
-    }
-
-    .list {
-      margin: 14px 0 0;
-      padding-left: 18px;
-      color: var(--muted);
-    }
-
-    .list li { margin: 8px 0; }
-
-    .timeline {
-      position: relative;
-      padding-left: 22px;
-    }
-
-    .timeline:before {
-      content: "";
-      position: absolute;
-      left: 8px;
-      top: 4px;
-      bottom: 4px;
-      width: 2px;
-      background: color-mix(in oklab, var(--text), transparent 85%);
-      border-radius: 2px;
-    }
-
-    .t-item {
-      position: relative;
-      margin: 0 0 22px;
-      padding-left: 10px;
-    }
-
-    .t-item:before {
-      content: "";
-      position: absolute;
-      left: -7px;
-      top: 7px;
-      width: 12px;
-      height: 12px;
-      background: linear-gradient(135deg, var(--brand), var(--brand-2));
-      border-radius: 50%;
-      box-shadow: 0 0 0 4px var(--ring);
-    }
-
-    .t-item h3 {
-      margin: 0 0 4px;
-      font-size: 19px;
-    }
-
-    .callout {
-      background: color-mix(in oklab, var(--panel-2), transparent 10%);
-      border: 1px solid color-mix(in oklab, var(--brand), transparent 65%);
-      border-radius: 20px;
-      padding: 22px;
-    }
-
-    .footer {
-      padding: 48px 0 60px;
-      color: var(--muted);
-    }
-
-    .socials {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .socials a {
-      padding: 9px 11px;
-      border-radius: 10px;
-      border: 1px solid color-mix(in oklab, var(--text), transparent 88%);
-      font-weight: 700;
-    }
-
-    @media (max-width: 760px) {
-      .container { padding: 18px; }
-
-      .hero {
-        grid-template-columns: 1fr;
-        padding-top: 36px;
-      }
-
-      .section-title {
-        align-items: start;
-        flex-direction: column;
-      }
-
-      .nav-inner { min-height: 56px; }
-
-      .nav-toggle { display: block; }
-
-      .nav-links {
-        position: absolute;
-        inset-inline: 0;
-        top: 100%;
-        display: none;
-        flex-direction: column;
-        gap: 8px;
-        padding: 12px 24px 16px;
-        background: var(--panel);
-        border-bottom: 1px solid color-mix(in oklab, var(--text), transparent 90%);
-      }
-
-      .nav.open .nav-links { display: flex; }
-
-      .nav-links a,
-      .nav-links .btn {
-        width: 100%;
-        padding: 12px;
-      }
-
-      .metric-grid { grid-template-columns: 1fr; }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Roman Ibba — Backend / Full-Stack Software Engineer</title>
+<meta name="description" content="Portfolio of Roman Ibba, a backend and full-stack software engineer building APIs, automation systems, integrations, and production web applications.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --bg:#f4f2ee;
+  --surface:#ffffff;
+  --surface2:#f8fafc;
+  --text:#191919;
+  --muted:#666666;
+  --line:#d9d9d9;
+  --accent:#0a66c2;
+  --accent-soft:#eaf3fb;
+  --max:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter,system-ui,sans-serif;
+  line-height:1.65;
+}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(var(--max),calc(100% - 48px));margin:auto}
+
+.nav{
+  position:sticky;top:0;z-index:20;
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+  box-shadow:0 1px 2px rgba(0,0,0,.04);
+}
+.nav .wrap{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{font-size:17px;font-weight:800;letter-spacing:-.02em}
+.navlinks{display:flex;align-items:center;gap:24px;font-size:14px;color:var(--muted)}
+.navlinks a:hover,.text-link:hover,.project-links a:hover,.contact-links a:hover{color:var(--accent)}
+.resume{padding:8px 13px;border:1px solid var(--accent);border-radius:999px;color:var(--accent)!important;font-weight:700}
+.menu{display:none;background:none;border:0;color:var(--text);font-size:24px}
+
+.hero{padding:88px 0 74px}
+.kicker,.section-label{font-size:12px;text-transform:uppercase;letter-spacing:.18em;font-weight:700;color:var(--accent)}
+h1{font-size:clamp(44px,7vw,82px);line-height:1.02;letter-spacing:-.055em;max-width:980px;margin:18px 0 28px}
+h2{font-size:clamp(30px,4vw,46px);letter-spacing:-.035em;line-height:1.1;margin:10px 0 16px}
+h3{font-size:21px;letter-spacing:-.02em;margin:0 0 8px}
+.lead{font-size:19px;color:var(--muted);max-width:800px}
+.actions{display:flex;gap:18px;flex-wrap:wrap;margin-top:32px}
+.primary{background:var(--accent);color:#fff;padding:11px 17px;border-radius:999px;font-weight:700}
+.text-link{color:var(--muted);font-weight:600;padding:11px 0}
+
+.strip{background:var(--surface);border:1px solid var(--line);border-radius:14px;margin:0 auto 28px;width:min(var(--max),calc(100% - 48px));box-shadow:0 1px 2px rgba(0,0,0,.03)}
+.strip .wrap{width:100%;display:grid;grid-template-columns:repeat(4,1fr);padding:0 28px}
+.stat{padding:24px 0}
+.stat+.stat{padding-left:30px;border-left:1px solid var(--line)}
+.stat strong{font-size:24px;display:block}
+.stat span{font-size:13px;color:var(--muted)}
+
+section.block{
+  width:min(var(--max),calc(100% - 48px));
+  margin:28px auto;
+  padding:54px 42px;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:14px;
+  box-shadow:0 1px 2px rgba(0,0,0,.035);
+}
+section.block>.wrap{width:100%;margin:0}
+.section-head{display:grid;grid-template-columns:220px 1fr;gap:40px;margin-bottom:38px}
+.section-head p{color:var(--muted);max-width:700px;margin:13px 0 0}
+.experience-item,.education-item{display:grid;grid-template-columns:220px 1fr;gap:40px;padding:34px 0;border-top:1px solid var(--line)}
+.date{color:var(--muted);font-size:14px}
+.sub{color:var(--accent);font-size:14px;font-weight:600;margin-bottom:14px}
+.bullets{margin:16px 0 0;padding-left:19px;color:var(--muted)}
+.bullets li{margin:7px 0}
+
+.project{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:58px;padding:48px 0;border-top:1px solid var(--line);align-items:start}
+.project:nth-child(even){grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr)}
+.project:nth-child(even) .project-side{order:2}
+.project-num{font-size:12px;color:var(--muted);letter-spacing:.15em}
+.project h3{font-size:clamp(27px,3vw,38px);margin:8px 0 12px}
+.project p{color:var(--muted);margin:0}
+.stack{font-size:13px;color:var(--accent);font-weight:600;margin-top:14px!important}
+.project-links{display:flex;gap:18px;flex-wrap:wrap;margin-top:22px}
+.project-links a{font-weight:700;font-size:14px;color:var(--accent)}
+.project-side{
+  min-height:220px;
+  background:var(--surface2);
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:30px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+}
+.project-side strong{font-size:16px}
+.project-side span{color:var(--muted);font-size:14px;margin-top:6px}
+
+.coursework{margin-top:18px}
+.course{padding:15px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px}
+.course-links{white-space:nowrap;font-size:13px;font-weight:700;color:var(--accent)}
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.skill{padding:26px 34px 26px 0;border-top:1px solid var(--line)}
+.skill:nth-child(3n+2),.skill:nth-child(3n+3){padding-left:34px;border-left:1px solid var(--line)}
+.skill h3{font-size:16px}
+.skill p{color:var(--muted);font-size:14px;margin:8px 0}
+
+.contact{
+  width:min(var(--max),calc(100% - 48px));
+  margin:28px auto;
+  padding:64px 42px;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:14px;
+  box-shadow:0 1px 2px rgba(0,0,0,.035);
+}
+.contact>.wrap{width:100%;margin:0}
+.contact h2{max-width:760px;font-size:clamp(38px,6vw,68px)}
+.contact-links{display:flex;gap:28px;flex-wrap:wrap;margin-top:30px;color:var(--accent);font-weight:600}
+.footer{border-top:1px solid var(--line);padding:28px 0 42px;color:var(--muted);font-size:13px}
+.footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+@media(max-width:800px){
+  .wrap{width:min(100% - 32px,var(--max))}
+  .navlinks{display:none;position:absolute;top:68px;left:0;right:0;padding:18px 16px;background:#fff;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start}
+  .navlinks.open{display:flex}
+  .menu{display:block}
+  .hero{padding:68px 0 56px}
+  .strip{width:calc(100% - 32px)}
+  .strip .wrap{grid-template-columns:1fr 1fr;padding:0 20px}
+  .stat:nth-child(3){border-left:0;padding-left:0;border-top:1px solid var(--line)}
+  .stat:nth-child(4){border-top:1px solid var(--line)}
+  section.block,.contact{width:calc(100% - 32px);padding:38px 24px;margin:20px auto}
+  .section-head,.experience-item,.education-item,.project,.project:nth-child(even){grid-template-columns:1fr;gap:18px}
+  .project:nth-child(even) .project-side{order:0}
+  .project{gap:26px}
+  .project-side{min-height:150px}
+  .skills-grid{grid-template-columns:1fr}
+  .skill,.skill:nth-child(3n+2),.skill:nth-child(3n+3){padding:22px 0;border-left:0}
+  .course{flex-direction:column;gap:6px}
+  .course-links{white-space:normal}
+}
+
+</style>
 </head>
-
 <body>
-  <header class="nav">
-    <div class="container nav-inner">
-      <a class="logo" href="#top" aria-label="Roman Ibba home">
-        <span class="logo-badge"></span>
-        Roman Ibba
-      </a>
-
-      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
-
-      <nav id="primary-nav" class="nav-links">
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#education">Education</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-        <a class="btn" href="assets/resume/RESUME_2026.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
-      </nav>
-    </div>
-  </header>
-
-  <main id="top" class="container">
-    <section id="about" class="hero">
-      <div>
-        <div class="eyebrow">Backend / Full-Stack Software Engineer</div>
-        <h1>I build APIs, automation systems, and full-stack applications that replace manual business workflows.</h1>
-
-        <p>
-          Software engineer with 5+ years of experience building production systems for logistics and customs operations using Laravel, PHP, JavaScript, SQL, REST APIs, and modern frontend frameworks.
-        </p>
-
-        <div class="chipset">
-          <span class="chip">Laravel</span>
-          <span class="chip">Python</span>
-          <span class="chip">Django</span>
-          <span class="chip">PHP</span>
-          <span class="chip">React / JavaScript</span>
-          <span class="chip">Vue 3</span>
-          <span class="chip">REST APIs</span>
-          <span class="chip">Workflow Automation</span>
-          <span class="chip">External Integrations</span>
-          <span class="chip">End-to-End Features</span>
-        </div>
-
-        <div style="margin-top:18px; display:flex; gap:10px; flex-wrap:wrap;">
-          <a class="btn btn-primary" href="#projects">View Projects</a>
-          <a class="btn" href="#contact">Contact Me</a>
-        </div>
-      </div>
-
-      <aside class="hero-card">
-        <h3>Engineering Focus</h3>
-        <p class="muted">
-          I build practical software that improves operations: automating manual processes,
-          integrating external systems, designing reliable APIs, and turning business workflows
-          into maintainable applications.
-        </p>
-
-        <div class="metric-grid">
-          <div class="metric">
-            <strong>5+</strong>
-            <span>Years Experience</span>
-          </div>
-          <div class="metric">
-            <strong>API</strong>
-            <span>Backend Integration</span>
-          </div>
-          <div class="metric">
-            <strong>20%</strong>
-            <span>Cost Reduction</span>
-          </div>
-          <div class="metric">
-            <strong>E2E</strong>
-            <span>Feature Ownership</span>
-          </div>
-        </div>
-      </aside>
-    </section>
-
-    <section id="experience">
-      <div class="section-title">
-        <h2>Work Experience</h2>
-        <p>Backend ownership, automation, integrations, and production workflow systems.</p>
-      </div>
-
-      <div class="timeline">
-        <div class="t-item">
-          <h3>Backend Developer · MIQ</h3>
-          <div class="meta">Software Engineering — Laravel, APIs &amp; Automation · Feb 2021 – Present</div>
-          <ul class="list">
-            <li>Built and maintained Laravel-based systems supporting customs filings, parcel processing, EDI generation, and logistics workflows.</li>
-            <li>Automated manual business processes by designing end-to-end backend tools for validation, file generation, status tracking, and operational reporting.</li>
-            <li>Developed API-driven workflows for Type 86, Entry Summary, Cargo Release, and related customs operations.</li>
-            <li>Translated complex business rules and compliance requirements into maintainable backend logic and user-facing workflows.</li>
-            <li>Improved system performance by refining backend logic, data access patterns, and application-level processing.</li>
-            <li>Integrated external APIs including FlightAware to support real-time cargo tracking and reduce warehouse holding costs by 20%.</li>
-            <li>Collaborated directly with operations and business stakeholders to identify pain points and replace repetitive manual processes with software solutions.</li>
-          </ul>
-        </div>
-
-        <div class="t-item">
-          <h3>PEGA / Software Engineer · Cisco Systems</h3>
-          <div class="meta">Feb 2020 – Jul 2020</div>
-          <ul class="list">
-            <li>Enhanced enterprise Product Returns and Replacement workflows by identifying bottlenecks and improving business process automation.</li>
-            <li>Contributed to Agile delivery, QA support, unit testing, and workflow improvements in an enterprise software environment.</li>
-          </ul>
-        </div>
-
-        <div class="t-item">
-          <h3>Software Engineering Trainee · Revature</h3>
-          <div class="meta">Oct 2019 – Feb 2020</div>
-          <ul class="list">
-            <li>Completed intensive Java full-stack engineering training focused on Spring Boot, REST APIs, SQL, Agile/Scrum, and unit testing.</li>
-            <li>Built team-based enterprise applications using Git, layered architecture, authentication workflows, and relational databases.</li>
-          </ul>
-        </div>
-
-        <div class="t-item">
-          <h3>Full Stack Developer Intern · CSU San Bernardino</h3>
-          <div class="meta">Oct 2017 – Jun 2018</div>
-          <ul class="list">
-            <li>Developed internal web tools and analytics dashboards for academic advisors using PHP, MVC architecture, and MySQL.</li>
-            <li>Built backend workflows and database-backed features to support student monitoring and department-level reporting.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects">
-      <div class="section-title">
-        <h2>Selected Projects</h2>
-        <p>Laravel, full-stack development, API design, authentication, and workflow automation.</p>
-      </div>
-
-      <div class="grid cols-3">
-        <article class="card feature-project">
-          <div class="eyebrow">Featured Project</div>
-          <h3>Laravel + Vue Full-Stack Application</h3>
-          <div class="meta">Laravel · Vue 3 · Vite · Tailwind · Sanctum · Axios · SQLite/MySQL</div>
-
-          <p class="muted">
-            A modern full-stack application built with a Laravel API backend and Vue 3 single-page frontend.
-            The project focuses on secure authentication, protected API communication, reusable UI structure,
-            and practical frontend/backend integration.
-          </p>
-
-          <ul class="list">
-            <li>Built a Vue 3 SPA with Vite, client-side routing, nested layouts, reusable components, and Tailwind-based UI.</li>
-            <li>Implemented Laravel Sanctum session-based authentication using CSRF protection and secure cookie-based login.</li>
-            <li>Configured Axios to send authenticated API requests with credentials and XSRF headers.</li>
-            <li>Created protected backend endpoints, request validation, user registration, login flow, and persistent database storage.</li>
-            <li>Structured the app with clear separation between route-level pages, reusable components, API routes, and Laravel controllers.</li>
-          </ul>
-
-          <p class="muted" style="margin-top:18px;"><em>Code and live demo coming soon.</em></p>
-        </article>
-
-        <article class="card">
-          <h3>Commerce Auction Platform</h3>
-          <div class="meta">Python · Django · SQLite · ORM · Authentication · HTML/CSS</div>
-          <p class="muted">
-            Auction marketplace built with Django featuring authenticated user workflows, relational data models, server-side business rules, and administrative management.
-          </p>
-          <ul class="list">
-            <li>Modeled listings, bids, comments, users, winners, and watchlist relationships with Django ORM.</li>
-            <li>Implemented bid validation, auction closing and winner assignment, comments, categories, and watchlists.</li>
-            <li>Built authenticated and authorized workflows with Django views, templates, forms, migrations, and Admin.</li>
-          </ul>
-          <div class="project-actions">
-            <a class="btn btn-primary" target="_blank" href="https://youtu.be/yuJB87ItZpw?si=q7wfanlQElGyW4WK" rel="noopener noreferrer">Watch Demo</a>
-            <a class="btn" target="_blank" href="https://github.com/me50/RomanIbba/tree/fe461592f115fd4e54d4b4941eceb7cf413c38c4" rel="noopener noreferrer">View Code</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <h3>Customs Filing Automation</h3>
-          <div class="meta">Laravel · PHP · MySQL · EDI · Workflow Automation</div>
-          <p class="muted">
-            Professional backend systems built to automate customs filing workflows, reduce manual processing,
-            generate compliant EDI files, validate shipment data, and track filing statuses.
-          </p>
-          <ul class="list">
-            <li>Automated repetitive filing and validation workflows.</li>
-            <li>Built backend logic for file generation, submission, and response handling.</li>
-            <li>Supported complex business rules across customs and logistics operations.</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h3>Flight Tracking Integration</h3>
-          <div class="meta">Laravel · REST API · External Integration · Logistics Automation</div>
-          <p class="muted">
-            Integrated FlightAware API data into logistics workflows to improve real-time cargo visibility,
-            reduce manual tracking, and support warehouse decision-making.
-          </p>
-          <ul class="list">
-            <li>Connected external flight data to internal operational workflows.</li>
-            <li>Reduced warehouse holding costs by 20%.</li>
-            <li>Improved shipment visibility through automated tracking updates.</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h3>Business Process Automation Tools</h3>
-          <div class="meta">Laravel · PHP · Internal Tools · Operational Workflows</div>
-          <p class="muted">
-            Internal tools and backend features built to reduce manual work, improve data accuracy,
-            and support operations teams with faster, more consistent workflows.
-          </p>
-          <ul class="list">
-            <li>Converted manual business steps into repeatable software workflows.</li>
-            <li>Built validation, reporting, and status-tracking features.</li>
-            <li>Worked directly with stakeholders to clarify requirements and improve usability.</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h3>Tuition Reimbursement Management System</h3>
-          <div class="meta">Java · Spring Boot · JDBC · PostgreSQL · Bootstrap</div>
-          <p class="muted">
-            Enterprise-style reimbursement platform with role-based access, approval workflows,
-            employee reimbursement tracking, and persistent relational data.
-          </p>
-          <div class="project-actions">
-            <a class="btn" target="_blank" href="https://github.com/RomanIbba/TuitionReimbursementManagementSystem" rel="noopener noreferrer">View Code</a>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <section id="education">
-      <div class="section-title">
-        <h2>Education</h2>
-        <p>Computer science foundation with continued web engineering coursework.</p>
-      </div>
-
-      <div class="grid cols-2">
-        <div class="card">
-          <h3>B.S. Computer Science</h3>
-          <div class="meta">California State University, San Bernardino · 2019</div>
-          <p class="muted">Bachelor of Science in Computer Science.</p>
-        </div>
-
-        <div class="card">
-          <h3>CS50's Web Programming with Python and JavaScript</h3>
-          <div class="meta">HarvardX · In Progress</div>
-          <p class="muted">Advanced web development coursework covering HTML/CSS, Git, Python, Django, SQL, data models and migrations, JavaScript, user interfaces, testing, CI/CD, scalability, and security.</p>
-          <h4 style="margin-bottom:8px;">Completed Projects</h4>
-          <ul class="list">
-            <li><strong>Project 0 — Search:</strong> Google Search, Image Search, and Advanced Search front end. <a href="https://github.com/me50/RomanIbba/tree/a79efd04939ca9033685312e28ba99c7553a507c" target="_blank" rel="noopener noreferrer">Code</a> · <a href="https://youtu.be/vEz9B0G-Sb8?si=h5-HDmp0NAlPXPc3" target="_blank" rel="noopener noreferrer">Demo</a></li>
-            <li><strong>Project 1 — Wiki:</strong> Django encyclopedia with search, create/edit flows, random entries, and Markdown-to-HTML rendering. <a href="https://github.com/me50/RomanIbba/tree/5e65005855b1b4ea22145d71e32c1f7696aafa59" target="_blank" rel="noopener noreferrer">Code</a> · <a href="https://youtu.be/9PlTvSL616M?si=XfKK0jIHR7-UYA4L" target="_blank" rel="noopener noreferrer">Demo</a></li>
-            <li><strong>Project 2 — Commerce:</strong> Django auction platform with authentication, relational models, bidding, comments, watchlists, categories, and admin management. <a href="https://github.com/me50/RomanIbba/tree/fe461592f115fd4e54d4b4941eceb7cf413c38c4" target="_blank" rel="noopener noreferrer">Code</a> · <a href="https://youtu.be/yuJB87ItZpw?si=q7wfanlQElGyW4WK" target="_blank" rel="noopener noreferrer">Demo</a></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills">
-      <div class="section-title">
-        <h2>Technical Skills</h2>
-        <p>Focused on Laravel/backend roles with full-stack flexibility.</p>
-      </div>
-
-      <div class="grid cols-3">
-        <div class="card">
-          <h3>Backend</h3>
-          <p class="muted">PHP, Laravel, Python, Django, REST APIs, MVC, Authentication, Authorization, Validation, File Processing, Business Logic</p>
-        </div>
-
-        <div class="card">
-          <h3>Frontend</h3>
-          <p class="muted">JavaScript, React, Vue 3, Vite, Tailwind CSS, Axios, SPA Routing, Component-Based UI</p>
-        </div>
-
-        <div class="card">
-          <h3>Automation & Integrations</h3>
-          <p class="muted">Workflow Automation, External APIs, EDI Processing, Data Validation, Operational Reporting, Internal Tools</p>
-        </div>
-
-        <div class="card">
-          <h3>Data & Storage</h3>
-          <p class="muted">MySQL, PostgreSQL, SQLite, Django ORM, Relational Data Modeling, Models & Migrations, Redis, Database-Backed Features</p>
-        </div>
-
-        <div class="card">
-          <h3>Tools</h3>
-          <p class="muted">Git, Postman, Linux CLI, NPM, Composer, Docker Basics, CI/CD Concepts</p>
-        </div>
-
-        <div class="card">
-          <h3>Engineering Practices</h3>
-          <p class="muted">End-to-End Feature Ownership, Code Reviews, Agile/Scrum, Debugging, Performance Improvements, SDLC</p>
-        </div>
-      </div>
-    </section>
-
-
-
-    <section id="contact">
-      <div class="section-title">
-        <h2>Contact</h2>
-        <p>Open to backend and full-stack engineering roles.</p>
-      </div>
-
-      <div class="grid cols-2">
-        <div class="card">
-          <h3>Get in touch</h3>
-          <p class="muted">
-            
-          </p>
-
-          <div class="socials" style="margin-top:14px;">
-            <a href="mailto:RomanIbba95@gmail.com">RomanIbba95@gmail.com</a>
-            <a href="https://www.linkedin.com/in/roman-i-7a9491183/" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a href="https://github.com/RomanIbba" target="_blank" rel="noreferrer">GitHub</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>Role Fit</h3>
-          <p class="muted">
-            Best fit for teams that need an engineer who can own backend-heavy features,
-            work across the stack, automate manual business processes, integrate external systems,
-            and improve existing production workflows.
-          </p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="container footer">
-    <div style="display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap;">
-      <div>© <span id="year"></span> Roman Ibba · <span class="muted">All rights reserved</span></div>
-      <div class="socials">
-        <a href="#top">Top</a>
-        <a href="#projects">Projects</a>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    (function () {
-      const header = document.querySelector('.nav');
-      const toggle = document.querySelector('.nav-toggle');
-      const nav = document.getElementById('primary-nav');
-
-      if (!header || !toggle || !nav) return;
-
-      toggle.addEventListener('click', function () {
-        const isOpen = header.classList.toggle('open');
-        toggle.setAttribute('aria-expanded', String(isOpen));
-      });
-
-      nav.addEventListener('click', function (event) {
-        if (event.target.tagName === 'A') {
-          header.classList.remove('open');
-          toggle.setAttribute('aria-expanded', 'false');
-        }
-      });
-    })();
-  </script>
-</body>
-</html>
+<header class="nav"><div class="wrap"><a class="brand" href="#top">Roman Ibba</a><button class="menu" aria-label="Toggle menu">☰</button><nav class="navlinks"><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#education">Education</a><a href="#skills">Skills</a><a href="#contact">Contact</a><a class="resume" href="assets/resume/RESUME_2026.pdf" target="_blank">Resume</a></nav></div></header>
+<main id="top">
+<section class="hero"><div class="wrap"><div class="kicker">Backend / Full-Stack Software Engineer</div><h1>Building software that turns complex business workflows into reliable systems.</h1><p class="lead">Software engineer with 5+ years of experience building production systems for logistics and customs operations using Laravel, PHP, JavaScript, SQL, REST APIs, and modern frontend frameworks. Currently expanding into Python and Django.</p><div class="actions"><a class="primary" href="#projects">View selected work</a><a class="text-link" href="mailto:RomanIbba95@gmail.com">RomanIbba95@gmail.com →</a></div></div></section>
+<div class="strip"><div class="wrap"><div class="stat"><strong>5+</strong><span>Years professional experience</span></div><div class="stat"><strong>20%</strong><span>Warehouse holding cost reduction</span></div><div class="stat"><strong>Laravel</strong><span>Production backend systems</span></div><div class="stat"><strong>Python / Django</strong><span>Current full-stack development</span></div></div></div>
+<section id="experience" class="block"><div class="wrap"><div class="section-head"><div class="section-label">01 — Experience</div><div><h2>Production engineering and workflow automation.</h2><p>Backend ownership, integrations, compliance-heavy business logic, and software built around real operational requirements.</p></div></div>
+<div class="experience-item"><div class="date">Feb 2021 — Present</div><div><h3>Backend Developer · MIQ</h3><div class="sub">Software Engineering — Laravel, APIs &amp; Automation</div><ul class="bullets"><li>Built and maintained Laravel systems supporting customs filings, parcel processing, EDI generation, and logistics workflows.</li><li>Designed end-to-end backend tools for validation, file generation, status tracking, and operational reporting.</li><li>Developed API-driven workflows for Type 86, Entry Summary, Cargo Release, and related customs operations.</li><li>Translated complex business and compliance requirements into maintainable backend logic and user-facing workflows.</li><li>Integrated FlightAware data into logistics workflows, improving cargo visibility and reducing warehouse holding costs by 20%.</li><li>Worked directly with operations and business stakeholders to replace repetitive manual processes with software.</li></ul></div></div>
+<div class="experience-item"><div class="date">Feb 2020 — Jul 2020</div><div><h3>PEGA / Software Engineer · Cisco Systems</h3><ul class="bullets"><li>Enhanced enterprise Product Returns and Replacement workflows by identifying bottlenecks and improving business process automation.</li><li>Contributed to Agile delivery, QA support, unit testing, and workflow improvements.</li></ul></div></div>
+<div class="experience-item"><div class="date">Oct 2019 — Feb 2020</div><div><h3>Software Engineering Trainee · Revature</h3><ul class="bullets"><li>Completed intensive Java full-stack training focused on Spring Boot, REST APIs, SQL, Agile/Scrum, and unit testing.</li><li>Built team-based enterprise applications using Git, layered architecture, authentication workflows, and relational databases.</li></ul></div></div>
+<div class="experience-item"><div class="date">Oct 2017 — Jun 2018</div><div><h3>Full Stack Developer Intern · CSU San Bernardino</h3><ul class="bullets"><li>Developed internal web tools and analytics dashboards for academic advisors using PHP, MVC architecture, and MySQL.</li><li>Built database-backed features supporting student monitoring and department reporting.</li></ul></div></div></div></section>
+<section id="projects" class="block"><div class="wrap"><div class="section-head"><div class="section-label">02 — Selected Work</div><div><h2>Systems, integrations, and full-stack applications.</h2><p>A mix of professional engineering work and projects that demonstrate current backend and full-stack development.</p></div></div>
+<article class="project"><div class="project-side"><span>Featured full-stack build</span><strong>Laravel API + Vue 3 SPA</strong></div><div><div class="project-num">PROJECT 01</div><h3>Laravel + Vue Full-Stack Application</h3><p>A modern application with a Laravel API backend and Vue 3 single-page frontend, focused on secure authentication, protected API communication, reusable UI structure, and practical frontend/backend integration.</p><p class="stack">Laravel · Vue 3 · Vite · Tailwind · Sanctum · Axios · SQLite / MySQL</p><ul class="bullets"><li>Built a Vue 3 SPA with client-side routing, nested layouts, and reusable components.</li><li>Implemented Laravel Sanctum authentication with CSRF protection and secure cookie-based login.</li><li>Created protected endpoints, request validation, registration/login flows, and persistent storage.</li></ul><div class="project-links"><span class="text-link">Code and live demo coming soon</span></div></div></article>
+<article class="project"><div class="project-side"><span>Python / Django</span><strong>Authenticated auction marketplace</strong></div><div><div class="project-num">PROJECT 02</div><h3>Commerce Auction Platform</h3><p>Full-stack auction marketplace with authenticated user workflows, relational data models, server-side business rules, and administrative management.</p><p class="stack">Python · Django · Django ORM · SQLite · Authentication · HTML / CSS</p><ul class="bullets"><li>Modeled listings, bids, comments, users, winners, and watchlist relationships.</li><li>Implemented bid validation, auction closing and winner assignment, comments, categories, and watchlists.</li><li>Built authenticated and authorized workflows with Django views, templates, forms, migrations, and Admin.</li></ul><div class="project-links"><a href="https://youtu.be/yuJB87ItZpw?si=q7wfanlQElGyW4WK" target="_blank">Watch Demo →</a><a href="https://github.com/me50/RomanIbba/tree/fe461592f115fd4e54d4b4941eceb7cf413c38c4" target="_blank">View Code →</a></div></div></article>
+<article class="project"><div class="project-side"><span>Professional system</span><strong>Customs filing &amp; EDI automation</strong></div><div><div class="project-num">PROJECT 03</div><h3>Customs Filing Automation</h3><p>Backend systems built to automate customs filing workflows, reduce manual processing, generate compliant EDI files, validate shipment data, and track filing statuses.</p><p class="stack">Laravel · PHP · MySQL · EDI · Workflow Automation</p><ul class="bullets"><li>Automated repetitive filing and validation workflows.</li><li>Built backend logic for file generation, submission, and response handling.</li><li>Supported complex business rules across customs and logistics operations.</li></ul></div></article>
+<article class="project"><div class="project-side"><span>External API integration</span><strong>Real-time cargo visibility</strong></div><div><div class="project-num">PROJECT 04</div><h3>Flight Tracking Integration</h3><p>Integrated FlightAware API data into logistics workflows to improve real-time cargo visibility, reduce manual tracking, and support warehouse decision-making.</p><p class="stack">Laravel · REST API · External Integration · Logistics Automation</p><ul class="bullets"><li>Connected external flight data to internal operational workflows.</li><li>Reduced warehouse holding costs by 20%.</li><li>Improved shipment visibility through automated tracking updates.</li></ul></div></article>
+<article class="project"><div class="project-side"><span>Java / Spring</span><strong>Enterprise workflow application</strong></div><div><div class="project-num">PROJECT 05</div><h3>Tuition Reimbursement Management System</h3><p>Enterprise-style reimbursement platform with role-based access, approval workflows, employee reimbursement tracking, and persistent relational data.</p><p class="stack">Java · Spring Boot · JDBC · PostgreSQL · Bootstrap</p><div class="project-links"><a href="https://github.com/RomanIbba/TuitionReimbursementManagementSystem" target="_blank">View Code →</a></div></div></article>
+</div></section>
+<section id="education" class="block"><div class="wrap"><div class="section-head"><div class="section-label">03 — Education</div><div><h2>Computer science foundation, continued development.</h2></div></div>
+<div class="education-item"><div class="date">2019</div><div><h3>B.S. Computer Science</h3><p class="sub">California State University, San Bernardino</p><p class="lead" style="font-size:15px">Bachelor of Science in Computer Science.</p></div></div>
+<div class="education-item"><div class="date">In Progress</div><div><h3>CS50's Web Programming with Python and JavaScript</h3><p class="sub">HarvardX</p><p class="lead" style="font-size:15px">Coursework in HTML/CSS, Git, Python, Django, SQL, data models and migrations, JavaScript, user interfaces, testing, CI/CD, scalability, and security.</p><div class="coursework"><div class="course"><span><strong>Project 0 — Search</strong> · Search interface front end</span><span class="course-links"><a href="https://github.com/me50/RomanIbba/tree/a79efd04939ca9033685312e28ba99c7553a507c" target="_blank">Code</a> · <a href="https://youtu.be/vEz9B0G-Sb8?si=h5-HDmp0NAlPXPc3" target="_blank">Demo</a></span></div><div class="course"><span><strong>Project 1 — Wiki</strong> · Django encyclopedia with Markdown workflows</span><span class="course-links"><a href="https://github.com/me50/RomanIbba/tree/5e65005855b1b4ea22145d71e32c1f7696aafa59" target="_blank">Code</a> · <a href="https://youtu.be/9PlTvSL616M?si=XfKK0jIHR7-UYA4L" target="_blank">Demo</a></span></div><div class="course"><span><strong>Project 2 — Commerce</strong> · Django auction platform</span><span class="course-links"><a href="https://github.com/me50/RomanIbba/tree/fe461592f115fd4e54d4b4941eceb7cf413c38c4" target="_blank">Code</a> · <a href="https://youtu.be/yuJB87ItZpw?si=q7wfanlQElGyW4WK" target="_blank">Demo</a></span></div></div></div></div></div></section>
+<section id="skills" class="block"><div class="wrap"><div class="section-head"><div class="section-label">04 — Skills</div><div><h2>Backend-first, full-stack capable.</h2><p>Technologies used across production systems, integrations, automation, and application development.</p></div></div><div class="skills-grid"><div class="skill"><h3>Backend</h3><p>PHP, Laravel, Python, Django, REST APIs, MVC, authentication, authorization, validation</p></div><div class="skill"><h3>Frontend</h3><p>JavaScript, React, Vue 3, Vite, Tailwind CSS, Axios, HTML, CSS</p></div><div class="skill"><h3>Data</h3><p>MySQL, PostgreSQL, SQLite, Django ORM, relational modeling, migrations, Redis</p></div><div class="skill"><h3>Automation &amp; Integrations</h3><p>Workflow automation, external APIs, EDI processing, data validation, operational reporting</p></div><div class="skill"><h3>Tools</h3><p>Git, Postman, Linux CLI, NPM, Composer, Docker, AWS</p></div><div class="skill"><h3>Engineering</h3><p>End-to-end feature ownership, Agile/Scrum, debugging, performance improvement, SDLC</p></div></div></div></section>
+<section id="contact" class="contact"><div class="wrap"><div class="section-label">05 — Contact</div><h2>Interested in backend systems, automation, integrations, and full-stack product work.</h2><div class="contact-links"><a href="mailto:RomanIbba95@gmail.com">RomanIbba95@gmail.com →</a><a href="https://www.linkedin.com/in/roman-i-7a9491183/" target="_blank">LinkedIn →</a><a href="https://github.com/RomanIbba" target="_blank">GitHub →</a></div></div></section>
+</main>
+<footer class="footer"><div class="wrap"><span>© <span id="year"></span> Roman Ibba</span><a href="#top">Back to top ↑</a></div></footer>
+<script>document.getElementById('year').textContent=new Date().getFullYear();const menu=document.querySelector('.menu');const nav=document.querySelector('.navlinks');menu.addEventListener('click',()=>nav.classList.toggle('open'));document.querySelectorAll('.navlinks a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));</script>
+</body></html>
