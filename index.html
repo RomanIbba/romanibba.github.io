@@ -3,26 +3,47 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+<<<<<<< HEAD
   <title>Roman Ibba — Portfolio</title>
   <meta name="description" content="Portfolio of Roman Ibba: backend software engineer specializing in distributed systems, APIs, and cloud." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+=======
+  <title>Roman Ibba — Backend / Full-Stack Software Engineer</title>
+  <meta name="description" content="Portfolio of Roman Ibba: Backend and Full-Stack Software Engineer specializing in Laravel, React, JavaScript, APIs, automation, integrations, and end-to-end business systems." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+>>>>>>> master
   <style>
     :root {
       --bg: #0b1220;
       --panel: #121a2b;
+<<<<<<< HEAD
+=======
+      --panel-2: #182238;
+>>>>>>> master
       --text: #e6edf6;
       --muted: #98a2b3;
       --brand: #7c9cff;
       --brand-2: #22d3ee;
       --ring: rgba(124, 156, 255, .35);
+<<<<<<< HEAD
       --card: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
     }
+=======
+      --card: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+    }
+
+>>>>>>> master
     @media (prefers-color-scheme: light) {
       :root {
         --bg: #f6f7fb;
         --panel: #ffffff;
+<<<<<<< HEAD
         --text: #0f172a;
         --muted: #475569;
         --brand: #3b82f6;
@@ -56,6 +77,92 @@
     .btn-primary { background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: #0b1220; border: none; }
 
     /* --- Mobile nav toggle --- */
+=======
+        --panel-2: #eef2ff;
+        --text: #0f172a;
+        --muted: #475569;
+        --brand: #2563eb;
+        --brand-2: #0891b2;
+        --ring: rgba(37, 99, 235, .25);
+        --card: linear-gradient(180deg, rgba(0,0,0,.04), rgba(0,0,0,.02));
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(1200px 600px at 80% -10%, rgba(124,156,255,.18), transparent 40%),
+        radial-gradient(900px 500px at 10% 10%, rgba(34,211,238,.10), transparent 45%),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.5;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: saturate(180%) blur(12px);
+      background: color-mix(in oklab, var(--bg), transparent 35%);
+      border-bottom: 1px solid color-mix(in oklab, var(--text), transparent 92%);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .logo {
+      font-weight: 900;
+      letter-spacing: .3px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-badge {
+      width: 30px;
+      height: 30px;
+      border-radius: 9px;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      box-shadow: 0 8px 20px -8px var(--ring);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      padding: 8px 10px;
+      border-radius: 10px;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      background: color-mix(in oklab, var(--panel), transparent 40%);
+    }
+
+>>>>>>> master
     .nav-toggle {
       display: none;
       background: transparent;
@@ -63,8 +170,11 @@
       border-radius: 10px;
       padding: 8px 10px;
       cursor: pointer;
+<<<<<<< HEAD
       align-items: center;
       gap: 5px;
+=======
+>>>>>>> master
     }
 
     .nav-toggle .bar {
@@ -74,6 +184,7 @@
       background: var(--text);
       border-radius: 2px;
     }
+<<<<<<< HEAD
     .nav-toggle .bar + .bar { margin-top: 4px; }
 
     /* Desktop default */
@@ -151,10 +262,165 @@
 
     .grid { display: grid; gap: 16px; }
     @media (min-width: 720px) {
+=======
+
+    .nav-toggle .bar + .bar { margin-top: 4px; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 14px;
+      border: 1px solid color-mix(in oklab, var(--text), transparent 85%);
+      background: var(--panel);
+      box-shadow: 0 10px 30px -15px var(--ring);
+      transition: transform .2s ease, border-color .2s ease;
+    }
+
+    .btn:hover {
+      border-color: color-mix(in oklab, var(--brand), transparent 35%);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      color: #07111f;
+      border: none;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 36px;
+      padding: 54px 0 24px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--brand-2);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 {
+      font-size: clamp(34px, 6vw, 58px);
+      line-height: 1.02;
+      margin: 0 0 14px;
+      letter-spacing: -0.04em;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 18px;
+      margin: 14px 0 22px;
+      max-width: 720px;
+    }
+
+    .hero-card {
+      background: var(--card);
+      border: 1px solid color-mix(in oklab, var(--text), transparent 88%);
+      border-radius: 24px;
+      padding: 22px;
+      box-shadow: 0 24px 80px -45px var(--ring);
+    }
+
+    .hero-card h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+
+    .hero-card p {
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .metric {
+      background: color-mix(in oklab, var(--panel), transparent 20%);
+      border: 1px solid color-mix(in oklab, var(--text), transparent 90%);
+      border-radius: 16px;
+      padding: 14px;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 22px;
+      line-height: 1;
+      color: var(--text);
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .chipset {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .chip {
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: color-mix(in oklab, var(--panel), transparent 30%);
+      border: 1px solid color-mix(in oklab, var(--text), transparent 86%);
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    section { padding: 42px 0; }
+
+    .section-title {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-size: clamp(23px, 3vw, 32px);
+      letter-spacing: -0.03em;
+    }
+
+    .section-title p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 520px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    @media (min-width: 760px) {
+>>>>>>> master
       .grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
       .grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
     }
 
+<<<<<<< HEAD
     .card { background: var(--card); border: 1px solid color-mix(in oklab, var(--text), transparent 88%); border-radius: 16px; padding: 18px; transition: transform .2s ease, border-color .2s ease; }
     /* .card:hover { transform: translateY(-3px); border-color: color-mix(in oklab, var(--brand), transparent 30%); } */
     .card h3 { margin: 0 0 8px; font-size: 18px; }
@@ -207,10 +473,195 @@
         <a class="btn" href="assets/resume/RESUME_2025.pdf" target="_blank" rel="noopener noreferrer">
           View/Download Resume (PDF)
         </a>
+=======
+    .card {
+      background: var(--card);
+      border: 1px solid color-mix(in oklab, var(--text), transparent 88%);
+      border-radius: 18px;
+      padding: 20px;
+      transition: transform .2s ease, border-color .2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: color-mix(in oklab, var(--brand), transparent 45%);
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+
+    .card p { margin: 0; }
+
+    .meta {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .muted { color: var(--muted); }
+
+    .feature-project {
+      grid-column: 1 / -1;
+      padding: 26px;
+      border-radius: 24px;
+      background:
+        radial-gradient(700px 300px at 90% 0%, rgba(34,211,238,.14), transparent 45%),
+        radial-gradient(600px 300px at 0% 10%, rgba(124,156,255,.16), transparent 45%),
+        var(--card);
+    }
+
+    .project-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .list {
+      margin: 14px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .list li { margin: 8px 0; }
+
+    .timeline {
+      position: relative;
+      padding-left: 22px;
+    }
+
+    .timeline:before {
+      content: "";
+      position: absolute;
+      left: 8px;
+      top: 4px;
+      bottom: 4px;
+      width: 2px;
+      background: color-mix(in oklab, var(--text), transparent 85%);
+      border-radius: 2px;
+    }
+
+    .t-item {
+      position: relative;
+      margin: 0 0 22px;
+      padding-left: 10px;
+    }
+
+    .t-item:before {
+      content: "";
+      position: absolute;
+      left: -7px;
+      top: 7px;
+      width: 12px;
+      height: 12px;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px var(--ring);
+    }
+
+    .t-item h3 {
+      margin: 0 0 4px;
+      font-size: 19px;
+    }
+
+    .callout {
+      background: color-mix(in oklab, var(--panel-2), transparent 10%);
+      border: 1px solid color-mix(in oklab, var(--brand), transparent 65%);
+      border-radius: 20px;
+      padding: 22px;
+    }
+
+    .footer {
+      padding: 48px 0 60px;
+      color: var(--muted);
+    }
+
+    .socials {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .socials a {
+      padding: 9px 11px;
+      border-radius: 10px;
+      border: 1px solid color-mix(in oklab, var(--text), transparent 88%);
+      font-weight: 700;
+    }
+
+    @media (max-width: 760px) {
+      .container { padding: 18px; }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 36px;
+      }
+
+      .section-title {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .nav-inner { min-height: 56px; }
+
+      .nav-toggle { display: block; }
+
+      .nav-links {
+        position: absolute;
+        inset-inline: 0;
+        top: 100%;
+        display: none;
+        flex-direction: column;
+        gap: 8px;
+        padding: 12px 24px 16px;
+        background: var(--panel);
+        border-bottom: 1px solid color-mix(in oklab, var(--text), transparent 90%);
+      }
+
+      .nav.open .nav-links { display: flex; }
+
+      .nav-links a,
+      .nav-links .btn {
+        width: 100%;
+        padding: 12px;
+      }
+
+      .metric-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="logo" href="#top" aria-label="Roman Ibba home">
+        <span class="logo-badge"></span>
+        Roman Ibba
+      </a>
+
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <nav id="primary-nav" class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+        <a class="btn" href="assets/resume/RESUME_2026.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+>>>>>>> master
       </nav>
     </div>
   </header>
 
+<<<<<<< HEAD
   <main class="container">
     <!-- Hero / About -->
     <section id="about" class="hero">
@@ -232,10 +683,37 @@
           <span class="chip">REST APIs</span>
         </div>
         <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
+=======
+  <main id="top" class="container">
+    <section id="about" class="hero">
+      <div>
+        <div class="eyebrow">Backend / Full-Stack Software Engineer</div>
+        <h1>I build APIs, automation systems, and full-stack applications that replace manual business workflows.</h1>
+
+        <p>
+          Software engineer with 5+ years of experience building production systems for logistics and customs operations using Laravel, PHP, JavaScript, SQL, REST APIs, and modern frontend frameworks.
+        </p>
+
+        <div class="chipset">
+          <span class="chip">Laravel</span>
+          <span class="chip">Python</span>
+          <span class="chip">Django</span>
+          <span class="chip">PHP</span>
+          <span class="chip">React / JavaScript</span>
+          <span class="chip">Vue 3</span>
+          <span class="chip">REST APIs</span>
+          <span class="chip">Workflow Automation</span>
+          <span class="chip">External Integrations</span>
+          <span class="chip">End-to-End Features</span>
+        </div>
+
+        <div style="margin-top:18px; display:flex; gap:10px; flex-wrap:wrap;">
+>>>>>>> master
           <a class="btn btn-primary" href="#projects">View Projects</a>
           <a class="btn" href="#contact">Contact Me</a>
         </div>
       </div>
+<<<<<<< HEAD
       <div class="avatar">Your Photo</div>
     </section>
 
@@ -325,10 +803,89 @@
             across departments. </br>
             • Created robust MySQL schemas and MVC-based PHP systems for analytics dashboards. 
             </p>
+=======
+
+      <aside class="hero-card">
+        <h3>Engineering Focus</h3>
+        <p class="muted">
+          I build practical software that improves operations: automating manual processes,
+          integrating external systems, designing reliable APIs, and turning business workflows
+          into maintainable applications.
+        </p>
+
+        <div class="metric-grid">
+          <div class="metric">
+            <strong>5+</strong>
+            <span>Years Experience</span>
+          </div>
+          <div class="metric">
+            <strong>API</strong>
+            <span>Backend Integration</span>
+          </div>
+          <div class="metric">
+            <strong>20%</strong>
+            <span>Cost Reduction</span>
+          </div>
+          <div class="metric">
+            <strong>E2E</strong>
+            <span>Feature Ownership</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="experience">
+      <div class="section-title">
+        <h2>Work Experience</h2>
+        <p>Backend ownership, automation, integrations, and production workflow systems.</p>
+      </div>
+
+      <div class="timeline">
+        <div class="t-item">
+          <h3>Backend Developer · MIQ</h3>
+          <div class="meta">Software Engineering — Laravel, APIs &amp; Automation · Feb 2021 – Present</div>
+          <ul class="list">
+            <li>Built and maintained Laravel-based systems supporting customs filings, parcel processing, EDI generation, and logistics workflows.</li>
+            <li>Automated manual business processes by designing end-to-end backend tools for validation, file generation, status tracking, and operational reporting.</li>
+            <li>Developed API-driven workflows for Type 86, Entry Summary, Cargo Release, and related customs operations.</li>
+            <li>Translated complex business rules and compliance requirements into maintainable backend logic and user-facing workflows.</li>
+            <li>Improved system performance by refining backend logic, data access patterns, and application-level processing.</li>
+            <li>Integrated external APIs including FlightAware to support real-time cargo tracking and reduce warehouse holding costs by 20%.</li>
+            <li>Collaborated directly with operations and business stakeholders to identify pain points and replace repetitive manual processes with software solutions.</li>
+          </ul>
+        </div>
+
+        <div class="t-item">
+          <h3>PEGA / Software Engineer · Cisco Systems</h3>
+          <div class="meta">Feb 2020 – Jul 2020</div>
+          <ul class="list">
+            <li>Enhanced enterprise Product Returns and Replacement workflows by identifying bottlenecks and improving business process automation.</li>
+            <li>Contributed to Agile delivery, QA support, unit testing, and workflow improvements in an enterprise software environment.</li>
+          </ul>
+        </div>
+
+        <div class="t-item">
+          <h3>Software Engineering Trainee · Revature</h3>
+          <div class="meta">Oct 2019 – Feb 2020</div>
+          <ul class="list">
+            <li>Completed intensive Java full-stack engineering training focused on Spring Boot, REST APIs, SQL, Agile/Scrum, and unit testing.</li>
+            <li>Built team-based enterprise applications using Git, layered architecture, authentication workflows, and relational databases.</li>
+          </ul>
+        </div>
+
+        <div class="t-item">
+          <h3>Full Stack Developer Intern · CSU San Bernardino</h3>
+          <div class="meta">Oct 2017 – Jun 2018</div>
+          <ul class="list">
+            <li>Developed internal web tools and analytics dashboards for academic advisors using PHP, MVC architecture, and MySQL.</li>
+            <li>Built backend workflows and database-backed features to support student monitoring and department-level reporting.</li>
+          </ul>
+>>>>>>> master
         </div>
       </div>
     </section>
 
+<<<<<<< HEAD
     <!-- Projects -->
     <section id="projects">
       <div class="section-title">
@@ -381,10 +938,199 @@
           <p class="muted">Email is best. I’m open to backend roles, platform engineering, and API‑heavy product work.</p>
           <div class="socials" style="margin-top:10px;">
             <a href="mailto:RomanIbba95@gmail.com" aria-label="Email">RomanIbba95@gmail.com</a>
+=======
+    <section id="projects">
+      <div class="section-title">
+        <h2>Selected Projects</h2>
+        <p>Laravel, full-stack development, API design, authentication, and workflow automation.</p>
+      </div>
+
+      <div class="grid cols-3">
+        <article class="card feature-project">
+          <div class="eyebrow">Featured Project</div>
+          <h3>Laravel + Vue Full-Stack Application</h3>
+          <div class="meta">Laravel · Vue 3 · Vite · Tailwind · Sanctum · Axios · SQLite/MySQL</div>
+
+          <p class="muted">
+            A modern full-stack application built with a Laravel API backend and Vue 3 single-page frontend.
+            The project focuses on secure authentication, protected API communication, reusable UI structure,
+            and practical frontend/backend integration.
+          </p>
+
+          <ul class="list">
+            <li>Built a Vue 3 SPA with Vite, client-side routing, nested layouts, reusable components, and Tailwind-based UI.</li>
+            <li>Implemented Laravel Sanctum session-based authentication using CSRF protection and secure cookie-based login.</li>
+            <li>Configured Axios to send authenticated API requests with credentials and XSRF headers.</li>
+            <li>Created protected backend endpoints, request validation, user registration, login flow, and persistent database storage.</li>
+            <li>Structured the app with clear separation between route-level pages, reusable components, API routes, and Laravel controllers.</li>
+          </ul>
+
+          <p class="muted" style="margin-top:18px;"><em>Code and live demo coming soon.</em></p>
+        </article>
+
+        <article class="card">
+          <h3>Commerce Auction Platform</h3>
+          <div class="meta">Python · Django · SQLite · ORM · Authentication · HTML/CSS</div>
+          <p class="muted">
+            Auction marketplace built with Django featuring authenticated user workflows, relational data models, server-side business rules, and administrative management.
+          </p>
+          <ul class="list">
+            <li>Modeled listings, bids, comments, users, winners, and watchlist relationships with Django ORM.</li>
+            <li>Implemented bid validation, auction closing and winner assignment, comments, categories, and watchlists.</li>
+            <li>Built authenticated and authorized workflows with Django views, templates, forms, migrations, and Admin.</li>
+          </ul>
+          <div class="project-actions">
+            <a class="btn btn-primary" target="_blank" href="https://youtu.be/yuJB87ItZpw?si=q7wfanlQElGyW4WK" rel="noopener noreferrer">Watch Demo</a>
+            <a class="btn" target="_blank" href="https://github.com/me50/RomanIbba/tree/fe461592f115fd4e54d4b4941eceb7cf413c38c4" rel="noopener noreferrer">View Code</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Customs Filing Automation</h3>
+          <div class="meta">Laravel · PHP · MySQL · EDI · Workflow Automation</div>
+          <p class="muted">
+            Professional backend systems built to automate customs filing workflows, reduce manual processing,
+            generate compliant EDI files, validate shipment data, and track filing statuses.
+          </p>
+          <ul class="list">
+            <li>Automated repetitive filing and validation workflows.</li>
+            <li>Built backend logic for file generation, submission, and response handling.</li>
+            <li>Supported complex business rules across customs and logistics operations.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Flight Tracking Integration</h3>
+          <div class="meta">Laravel · REST API · External Integration · Logistics Automation</div>
+          <p class="muted">
+            Integrated FlightAware API data into logistics workflows to improve real-time cargo visibility,
+            reduce manual tracking, and support warehouse decision-making.
+          </p>
+          <ul class="list">
+            <li>Connected external flight data to internal operational workflows.</li>
+            <li>Reduced warehouse holding costs by 20%.</li>
+            <li>Improved shipment visibility through automated tracking updates.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Business Process Automation Tools</h3>
+          <div class="meta">Laravel · PHP · Internal Tools · Operational Workflows</div>
+          <p class="muted">
+            Internal tools and backend features built to reduce manual work, improve data accuracy,
+            and support operations teams with faster, more consistent workflows.
+          </p>
+          <ul class="list">
+            <li>Converted manual business steps into repeatable software workflows.</li>
+            <li>Built validation, reporting, and status-tracking features.</li>
+            <li>Worked directly with stakeholders to clarify requirements and improve usability.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Tuition Reimbursement Management System</h3>
+          <div class="meta">Java · Spring Boot · JDBC · PostgreSQL · Bootstrap</div>
+          <p class="muted">
+            Enterprise-style reimbursement platform with role-based access, approval workflows,
+            employee reimbursement tracking, and persistent relational data.
+          </p>
+          <div class="project-actions">
+            <a class="btn" target="_blank" href="https://github.com/RomanIbba/TuitionReimbursementManagementSystem" rel="noopener noreferrer">View Code</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="section-title">
+        <h2>Education</h2>
+        <p>Computer science foundation with continued web engineering coursework.</p>
+      </div>
+
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>B.S. Computer Science</h3>
+          <div class="meta">California State University, San Bernardino · 2019</div>
+          <p class="muted">Bachelor of Science in Computer Science.</p>
+        </div>
+
+        <div class="card">
+          <h3>CS50's Web Programming with Python and JavaScript</h3>
+          <div class="meta">HarvardX · In Progress</div>
+          <p class="muted">Advanced web development coursework covering HTML/CSS, Git, Python, Django, SQL, data models and migrations, JavaScript, user interfaces, testing, CI/CD, scalability, and security.</p>
+          <h4 style="margin-bottom:8px;">Completed Projects</h4>
+          <ul class="list">
+            <li><strong>Project 0 — Search:</strong> Google Search, Image Search, and Advanced Search front end. <a href="https://github.com/me50/RomanIbba/tree/a79efd04939ca9033685312e28ba99c7553a507c" target="_blank" rel="noopener noreferrer">Code</a> · <a href="https://youtu.be/vEz9B0G-Sb8?si=h5-HDmp0NAlPXPc3" target="_blank" rel="noopener noreferrer">Demo</a></li>
+            <li><strong>Project 1 — Wiki:</strong> Django encyclopedia with search, create/edit flows, random entries, and Markdown-to-HTML rendering. <a href="https://github.com/me50/RomanIbba/tree/5e65005855b1b4ea22145d71e32c1f7696aafa59" target="_blank" rel="noopener noreferrer">Code</a> · <a href="https://youtu.be/9PlTvSL616M?si=XfKK0jIHR7-UYA4L" target="_blank" rel="noopener noreferrer">Demo</a></li>
+            <li><strong>Project 2 — Commerce:</strong> Django auction platform with authentication, relational models, bidding, comments, watchlists, categories, and admin management. <a href="https://github.com/me50/RomanIbba/tree/fe461592f115fd4e54d4b4941eceb7cf413c38c4" target="_blank" rel="noopener noreferrer">Code</a> · <a href="https://youtu.be/yuJB87ItZpw?si=q7wfanlQElGyW4WK" target="_blank" rel="noopener noreferrer">Demo</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="section-title">
+        <h2>Technical Skills</h2>
+        <p>Focused on Laravel/backend roles with full-stack flexibility.</p>
+      </div>
+
+      <div class="grid cols-3">
+        <div class="card">
+          <h3>Backend</h3>
+          <p class="muted">PHP, Laravel, Python, Django, REST APIs, MVC, Authentication, Authorization, Validation, File Processing, Business Logic</p>
+        </div>
+
+        <div class="card">
+          <h3>Frontend</h3>
+          <p class="muted">JavaScript, React, Vue 3, Vite, Tailwind CSS, Axios, SPA Routing, Component-Based UI</p>
+        </div>
+
+        <div class="card">
+          <h3>Automation & Integrations</h3>
+          <p class="muted">Workflow Automation, External APIs, EDI Processing, Data Validation, Operational Reporting, Internal Tools</p>
+        </div>
+
+        <div class="card">
+          <h3>Data & Storage</h3>
+          <p class="muted">MySQL, PostgreSQL, SQLite, Django ORM, Relational Data Modeling, Models & Migrations, Redis, Database-Backed Features</p>
+        </div>
+
+        <div class="card">
+          <h3>Tools</h3>
+          <p class="muted">Git, Postman, Linux CLI, NPM, Composer, Docker Basics, CI/CD Concepts</p>
+        </div>
+
+        <div class="card">
+          <h3>Engineering Practices</h3>
+          <p class="muted">End-to-End Feature Ownership, Code Reviews, Agile/Scrum, Debugging, Performance Improvements, SDLC</p>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section id="contact">
+      <div class="section-title">
+        <h2>Contact</h2>
+        <p>Open to backend and full-stack engineering roles.</p>
+      </div>
+
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>Get in touch</h3>
+          <p class="muted">
+            
+          </p>
+
+          <div class="socials" style="margin-top:14px;">
+            <a href="mailto:RomanIbba95@gmail.com">RomanIbba95@gmail.com</a>
+>>>>>>> master
             <a href="https://www.linkedin.com/in/roman-i-7a9491183/" target="_blank" rel="noreferrer">LinkedIn</a>
             <a href="https://github.com/RomanIbba" target="_blank" rel="noreferrer">GitHub</a>
           </div>
         </div>
+<<<<<<< HEAD
         <div class="card">
           <h3>Quick message</h3>
           <form action="mailto:RomanIbba95@gmail.com" method="post" enctype="text/plain">
@@ -396,11 +1142,22 @@
             <div class="spacer"></div>
             <button class="btn btn-primary" type="submit">Send</button>
           </form>
+=======
+
+        <div class="card">
+          <h3>Role Fit</h3>
+          <p class="muted">
+            Best fit for teams that need an engineer who can own backend-heavy features,
+            work across the stack, automate manual business processes, integrate external systems,
+            and improve existing production workflows.
+          </p>
+>>>>>>> master
         </div>
       </div>
     </section>
   </main>
 
+<<<<<<< HEAD
   <footer class="container">
     <div style="display:flex; align-items:center; justify-content:space-between; gap: 18px; flex-wrap:wrap;">
       <div>© <span id="year"></span> Roman Ibba · <span class="muted">All rights reserved</span></div>
@@ -408,6 +1165,14 @@
         <a href="#about">Top</a>
         <!-- <a href="#projects">Projects</a>
         <a href="#contact">Contact</a> -->
+=======
+  <footer class="container footer">
+    <div style="display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap;">
+      <div>© <span id="year"></span> Roman Ibba · <span class="muted">All rights reserved</span></div>
+      <div class="socials">
+        <a href="#top">Top</a>
+        <a href="#projects">Projects</a>
+>>>>>>> master
       </div>
     </div>
   </footer>
@@ -415,6 +1180,7 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
+<<<<<<< HEAD
     // below is for hamburger menu
     (function () {
       const header = document.querySelector('.nav');
@@ -430,12 +1196,33 @@
       // Close menu when clicking a link (nice UX)
       document.getElementById('primary-nav')?.addEventListener('click', (e) => {
         if (e.target.tagName === 'A') {
+=======
+    (function () {
+      const header = document.querySelector('.nav');
+      const toggle = document.querySelector('.nav-toggle');
+      const nav = document.getElementById('primary-nav');
+
+      if (!header || !toggle || !nav) return;
+
+      toggle.addEventListener('click', function () {
+        const isOpen = header.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      nav.addEventListener('click', function (event) {
+        if (event.target.tagName === 'A') {
+>>>>>>> master
           header.classList.remove('open');
           toggle.setAttribute('aria-expanded', 'false');
         }
       });
     })();
   </script>
+<<<<<<< HEAD
   
 </body>
 </html>
+=======
+</body>
+</html>
+>>>>>>> master
